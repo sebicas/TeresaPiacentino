@@ -1,6 +1,9 @@
 Options +FollowSymLinks
 RewriteEngine on
 
+# Fix mixed content - automatically upgrade HTTP to HTTPS
+Header always set Content-Security-Policy "upgrade-insecure-requests"
+
 # URL rewrites
 RewriteRule ^cuadro/(.+)$ /ampliar.html?$1
 RewriteRule ^painting/(.+)$ /painting.html?$1

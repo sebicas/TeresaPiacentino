@@ -20,8 +20,8 @@
           		<a class="bitcoin-btn"><strong>Bitcoin</strong> Accepted</a>
               <div class="social-icons">
                 <span>Follow me:</span>
-                <a href="http://www.facebook.com/Cuadros.Abstractos" target=_blank><img src="images/ico-facebook.png" alt="Facebook" /></a>
-                <a href="http://twitter.com/terepiacentino" target=_blank><img src="images/ico-twitter.png" alt="Twitter" /></a>
+                <a href="https://www.facebook.com/Cuadros.Abstractos" target=_blank><img src="images/ico-facebook.png" alt="Facebook" /></a>
+                <a href="https://twitter.com/terepiacentino" target=_blank><img src="images/ico-twitter.png" alt="Twitter" /></a>
             </div>  
             <div class="language">
                 <a href="/"><img src="images/flag-es.jpg" width="16" height="11" alt="espanol" /></a>
