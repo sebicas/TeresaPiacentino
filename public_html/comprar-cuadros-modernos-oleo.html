@@ -1,8 +1,14 @@
 <?php
    require_once 'includes/db-connect.php';
   
-   $query = "select * from `Cuadros` where `CuadroID` = '$CuadroID'";
-   $dataCuadro =& $db->getRow($query, array(), DB_FETCHMODE_ASSOC);
+   // Get CuadroID from query string (modern PHP - register_globals is disabled)
+   $CuadroID = isset($_REQUEST['CuadroID']) ? $_REQUEST['CuadroID'] : '';
+   
+   $dataCuadro = null;
+   if (!empty($CuadroID)) {
+      $query = "select * from `Cuadros` where `CuadroID` = '" . $db->escapeSimple($CuadroID) . "'";
+      $dataCuadro =& $db->getRow($query, array(), DB_FETCHMODE_ASSOC);
+   }
    $db->disconnect();
 
    $title= "Venta de Cuadros Originales Pintados al Oleo - Galeria Online con Precios";
