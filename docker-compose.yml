@@ -73,9 +73,10 @@ services:
     image: phpmyadmin:latest
     container_name: teresapiacentino-phpmyadmin
     restart: unless-stopped
-    ports:
-      - "8081:80"
+    expose:
+      - "3000"
     environment:
+      - APACHE_PORT=3000
       - PMA_HOST=mysql
       - PMA_USER=${MYSQL_USER:-teresapi}
       - PMA_PASSWORD=${MYSQL_PASSWORD:-WtKPvPjB9AjwtyPf}
