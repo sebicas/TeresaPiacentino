@@ -53,6 +53,10 @@ RUN { \
 # Set Apache ServerName to suppress warning
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
+# Configure Apache to listen on port 3000 for Coolify
+RUN sed -i 's/Listen 80/Listen 3000/' /etc/apache2/ports.conf \
+    && sed -i 's/:80/:3000/' /etc/apache2/sites-available/000-default.conf
+
 # Copy application files
 COPY public_html/ /var/www/html/
 
@@ -63,12 +67,12 @@ RUN chown -R www-data:www-data /var/www/html \
 # Create msmtp configuration directory
 RUN mkdir -p /etc/msmtp
 
-# Expose port 80
-EXPOSE 80
+# Expose port 3000 for Coolify
+EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost/ || exit 1
+    CMD curl -f http://localhost:3000/ || exit 1
 
 # Start Apache
 CMD ["apache2-foreground"]
