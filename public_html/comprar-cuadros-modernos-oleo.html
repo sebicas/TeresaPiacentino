@@ -1,4 +1,4 @@
-<?
+<?php
    require_once 'includes/db-connect.php';
   
    $query = "select * from `Cuadros` where `CuadroID` = '$CuadroID'";
@@ -23,12 +23,12 @@
 					<div class="boxForm">
 					<form action="/formmail.php" name="ContactForm" method="post">
 					<input type="hidden" name="redirect" value="/gracias.html">
-					<? if($dataCuadro) { ?> 
-					<input type="hidden" name="subject" value="Consulta por cuadro <?= $CuadroID; ?>: '<?= $dataCuadro['Titulo']; ?>'">
-					<input type="hidden" name="LinkCuadro" value="http://www.teresapiacentino.com/cuadro/<?= $CuadroID; ?>/">					
-					<? } else { ?>
+					<?php if($dataCuadro) { ?> 
+					<input type="hidden" name="subject" value="Consulta por cuadro <?php echo $CuadroID; ?>: '<?php echo $dataCuadro['Titulo']; ?>'">
+					<input type="hidden" name="LinkCuadro" value="http://www.teresapiacentino.com/cuadro/<?php echo $CuadroID; ?>/">					
+					<?php } else { ?>
 					<input type="hidden" name="subject" value="Contacto desde TeresaPiacentino.com">
-					<? } ?>
+					<?php } ?>
 						<div class="box1">
 							<label for="Nombre">Nombre</label>
 							<input type="text" name="name" id="Nombre" />
@@ -54,8 +54,8 @@
 							<a href="javascript:document.ContactForm.submit();">ENVIAR</a>
 						</div>
 						
-						<input type="hidden" name="Pais" value="<?= $_SERVER['HTTP_CF_IPCOUNTRY'] ?>" />
-						<input type="hidden" name="IP" value="<?= $_SERVER['REMOTE_ADDR'] ?>" />
+						<input type="hidden" name="Pais" value="<?php echo $_SERVER['HTTP_CF_IPCOUNTRY']; ?>" />
+						<input type="hidden" name="IP" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>" />
 						 
 					</form>
 					</div>
@@ -64,5 +64,5 @@
 			</div>
 		  </div>
           	
-<? commonFooter(); ?>
+<?php commonFooter(); ?>
 
