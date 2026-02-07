@@ -1,6 +1,5 @@
 <?
 
-require_once 'DB.php';
 require_once __DIR__ . '/db-connect.php';
 
 // Emulate Country for IP
@@ -14,6 +13,17 @@ $CuadroID = substr($Pagina, 0, $Div);
 // Read MySQL
 $query = "select * from `Cuadros` where `CuadroID` = '$CuadroID'";
 $dataCuadro =& $db->getRow($query, array(), DB_FETCHMODE_ASSOC);
+
+// Check for database errors
+if (PEAR::isError($dataCuadro)) {
+  die("Database Error: " . $dataCuadro->getMessage() . " - Query: " . $query);
+}
+
+// Check if cuadro exists
+if (!$dataCuadro) {
+  header("HTTP/1.1 404 Not Found");
+  die("Cuadro not found: $CuadroID");
+}
 
 // Correct Page Name
 $CorrectPageName = $CuadroID . '/' . $dataCuadro['PageName'];
