@@ -25,7 +25,23 @@ RUN curl -o /tmp/go-pear.phar https://pear.php.net/go-pear.phar \
     && rm /tmp/go-pear.phar
 
 # Enable Apache modules
-RUN a2enmod rewrite headers
+RUN a2enmod rewrite headers remoteip
+
+# Configure Apache to trust headers from reverse proxy (Traefik/Coolify)
+# This fixes HTTPS redirect loops by trusting X-Forwarded-Proto
+RUN { \
+    echo 'RemoteIPHeader X-Forwarded-For'; \
+    echo 'RemoteIPInternalProxy 10.0.0.0/8'; \
+    echo 'RemoteIPInternalProxy 172.16.0.0/12'; \
+    echo 'RemoteIPInternalProxy 192.168.0.0/16'; \
+    } > /etc/apache2/conf-available/remoteip.conf \
+    && a2enconf remoteip
+
+# Set HTTPS environment variable based on X-Forwarded-Proto header
+RUN { \
+    echo 'SetEnvIf X-Forwarded-Proto "https" HTTPS=on'; \
+    } > /etc/apache2/conf-available/https-env.conf \
+    && a2enconf https-env
 
 # Configure PHP for legacy compatibility
 RUN { \
