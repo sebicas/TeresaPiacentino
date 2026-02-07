@@ -22,13 +22,7 @@ services:
         condition: service_healthy
     networks:
       - teresapiacentino-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.teresapiacentino.rule=Host(`www.teresapiacentino.com`) || Host(`teresapiacentino.com`)"
-      - "traefik.http.routers.teresapiacentino.entrypoints=https"
-      - "traefik.http.routers.teresapiacentino.tls=true"
-      - "traefik.http.routers.teresapiacentino.tls.certresolver=letsencrypt"
-      - "traefik.http.services.teresapiacentino.loadbalancer.server.port=3000"
+    # Note: Traefik labels are managed by Coolify - do not add them here
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/"]
       interval: 30s
@@ -57,7 +51,17 @@ services:
     networks:
       - teresapiacentino-network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-rootpassword}"]
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "root",
+          "-p${MYSQL_ROOT_PASSWORD:-rootpassword}",
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
