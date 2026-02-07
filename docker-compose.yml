@@ -46,8 +46,8 @@ services:
       - mysql-data:/var/lib/mysql
       # Initialize database on first run
       - ./db/teresapi_base.sql:/docker-entrypoint-initdb.d/01-teresapi_base.sql:ro
-    ports:
-      - "3306:3306"
+    # Port not exposed - access via Docker network only (more secure)
+    # Use phpMyAdmin profile for database management if needed
     networks:
       - teresapiacentino-network
     healthcheck:
