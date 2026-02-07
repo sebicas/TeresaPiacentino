@@ -1,0 +1,205 @@
+<? 
+	// Include PHP Code for Ampliar
+ 	require_once 'includes/ampliar_code.php';
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Venta de Cuadros Modernos - '<?= $dataCuadro['Titulo']; ?>' por Teresa Piacentino</title>
+<META NAME="Description" CONTENT="Venta de cuadros modernos y cuadros abstractos al oleo. Galeria de arte donde comprar cuadros, pinturas de mariposas, cuadros de flores, paisajes naturales y urbanos, rincones, bodegones.">
+<META NAME="Keywords" CONTENT="venta de cuadros, venta de pinturas al oleo, cuadros originales pintados al oleo, venta de pinturas, galeria de arte, cuadros con precios, cuadros modernos al oleo">
+<link rel="stylesheet" type="text/css" href="/templates/ampliar.css" />
+</head>
+<body bgColor=#e4e1db leftMargin=0 topMargin=0 rightMargin=0 BACKMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center"><table width="846" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td valign="top"><img src="/images/header_a.jpg" width="362" height="70" /></td>
+        <td width="466" valign="top" background="/images/header_b.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="88" height="67" align="center" valign="bottom"><a href="/" class="botonera">Inicio</a></td>
+              <td width="95" align="center" valign="bottom"><a href="/galeria-cuadros-oleo-venta-online-precios.html" class="botonera">Galeria</a></td>
+              <td width="88" align="center" valign="bottom"><a href="/biografia-artista-contemporanea.html" class="botonera">Biografia</a></td>
+              <td width="92" align="center" valign="bottom"><a href="/venta-reproducciones-laminas-arte.html" class="botonera">Reproducciones</a></td>
+              <td width="88" align="center" valign="bottom"><a href="/comprar-cuadros-modernos-oleo.html" class="botonera">Contacto</a></td>
+              <td align="center" valign="bottom">&nbsp;</td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" height="2"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#A29793" height="15"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="10"></td>
+  </tr>
+  <tr>
+    <td height="20">
+    	<div class="form">
+        	<span class="title">Te gustaron mis cuadros? Recibi mis nuevas pinturas en tu email!</span>
+            <form method="post" action="/gracias-suscripcion.html">
+            	<input name="first_name" type="text" value="Nombre" onfocus="if(this.value=='Nombre') { this.value=''; }" onBlur="if(this.value == ''){this.value='Nombre';}" class="field" />
+                <input name="last_name" type="text" value="Apellido" onfocus="if(this.value=='Apellido') { this.value=''; }" onBlur="if(this.value == ''){this.value='Apellido';}" class="field" />
+                <input name="email" type="text" value="Email" onfocus="if(this.value=='Email') { this.value=''; }" onBlur="if(this.value == ''){this.value='Email';}" class="field" />
+                <input type="image" src="/images/btn-enviar.gif" name="image" class="btnSearch" />
+				<input type="hidden" name="country_code" value="<?= $_SERVER['HTTP_CF_IPCOUNTRY'] ?>" />	
+            </form>
+            <span class="text">* Una vez por mes recibir&aacute;s mis nuevas obras ademas de mis pr&oacute;ximos eventos y exhibiciones.</span>
+        </div>
+    </td>
+  </tr>
+  <tr>
+    <td height="15">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="center"><? echo "<IMG SRC=\"/images/$CuadroID.jpg\" $size[3] border=0>"; ?></td>
+  </tr>
+  <tr>
+    <td height="20"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" bgcolor="#8B8276"><table width="845" border="0" cellspacing="0" cellpadding="0" class="descripcion">
+      <tr>
+        <td height="28" colspan="2" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100" height="22" bgcolor="#63594E"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="25"><img src="/images/ico-info.gif" alt="" width="21" height="16" /></td>
+                  <td class="descripcion-tit">DESCRIPCION</td>
+                </tr>
+            </table></td>
+            <td>&nbsp;</td>
+            <td width="210" height="27" align="center" bgcolor="#970000"><a href="/contact-us.html?CuadroID=<?= $CuadroID; ?>" class="consultar" style="color:#ffffff; font-size:11px; font-weight:bold; background:url(images/ico-arrow_w-r.gif) no-repeat; background-position:right 5px; padding-right:12px;">CONSULTAR SOBRE ESTA OBRA</a></td>
+          </tr>
+        </table></td>
+        </tr>
+      <tr>
+        <td width="388" height="30" align="left"><strong>T&Iacute;TULO:</strong> <?= $dataCuadro['Titulo']; ?></td>
+        <td width="457" rowspan="8" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td bgcolor="e4e1db"></td>
+            <td height="5" colspan="2" align="right" valign="top"></td>
+            </tr>
+          <tr>
+            <td width="1" bgcolor="#e4e1db"></td>
+            <td width="82" align="center" valign="top"><img src="/images/icon-nuevo.jpg" alt="Nuevo" width="71" height="53" /></td>
+            <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="left" style="font-size:15px; font-weight:bold;">Reproducciones sobre Lienzo Calidad Museo</td>
+              </tr>
+              <tr>
+                <td align="left">&nbsp;</td>
+              </tr>
+              <tr>
+                <td align="left">Ahora tambi&eacute;n pod&eacute;s comprar la reproduci&oacute;n sobre tela de todas mis obras, realizadas con la misma calidad de los Museos mas importantes del mundo. Se envian autografiadas y con certificado de autenticidad.</td>
+              </tr>
+              <tr>
+                <td align="left">&nbsp;</td>
+              </tr>
+              <tr>
+                <td align="left" style="font-weight:bold;">Reproducciones Calidad Museo (Canvas/Tela):</td>
+              </tr>
+
+<? foreach($ReproduccionLine as $LineID => $LineContent) { ?>
+
+              <tr>
+                <td align="left"><?= $LineContent ?></td>
+              </tr>
+
+<? } ?>
+
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="250" align="left">* Otros tama&ntilde;os disponibles consultar</td>
+                    <td align="right"><A HREF="/venta-reproducciones-laminas-arte.html" style="text-decoration:none; color:#463e35"><B>Mas Informaci&oacute;n</B> <IMG SRC="/images/arrow-yellow.jpg" BORDER=0 WIDTH=13 HEIGHT=9></A></td>
+                  </tr>
+                </table></td>
+              </tr>
+      		  <tr>
+        		<td height="20">&nbsp;</td>
+      		  </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="30" align="left"><strong>A&Ntilde;O:</strong> <?= $dataCuadro['Ano']; ?></td>
+        </tr>
+      <tr>
+        <td height="30" align="left"><strong>TAMA&Ntilde;O:</strong> <?= $dataCuadro['Tamano']; ?></td>
+        </tr>
+      <tr>
+        <td height="30" align="left"><strong>T&Eacute;CNICA EMPLEADA:</strong> <?= $dataCuadro['Tecnica']; ?></td>
+        </tr>
+      <tr>
+        <td height="20" align="left"><table width="98%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="7"></td>
+          </tr>
+          <tr>
+            <td bgcolor="#FFFFFF" height="1"></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="20" bgcolor="#63594E" width="97">&nbsp;&nbsp;<span class="descripcion-tit"><strong>OLEO ORIGINAL</strong></span></td>
+                  <td width="8"></td>
+                  <td class="descripcion"><strong><?= $DisplayPrice; ?></strong> </td>
+                </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td height="4"></td>
+          </tr>
+		  
+          <tr>
+            <td bgcolor="#FFFFFF" height="1"></td>
+          </tr>		  
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="20" bgcolor="#63594E" width="185">&nbsp;&nbsp;<span class="descripcion-tit"><strong>REPRODUCCION CALIDAD MUSEO</strong></span></td>
+                  <td width="8"></td>
+                  <td class="descripcion"><strong><?= $DisplayRepPrice; ?> *</strong> </td>
+                </tr>
+            </table></td>
+          </tr>		  
+        </table></td>
+        </tr>
+      <tr>
+        <td height="10" align="left"></td>
+      </tr>
+      <tr>
+        <td height="30" align="left">* El tipo de reproduccion de todas mis obras, es la misma que utilizan los Museos mas importantes del mundo. Estan hechas sobre canvas y son muy realistas, casi como tener un oleo original!</td>
+      </tr>
+      <tr>
+        <td height="20">&nbsp;</td>
+      </tr>
+    </table>
+     </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" height="2"></td>
+  </tr>
+  <tr>
+    <td height="20" align="center"><span class="footer"> <a href="/" class="footer">Inicio</a> <span class="barra">|</span> <a href="/galeria-cuadros-oleo-venta-online-precios.html" class="footer">Galeria</a> <span class="barra">|</span> <a href="/venta-reproducciones-laminas-arte.html" class="footer">Reproducciones de Cuadros</a> <span class="barra">|</span> <a href="/comprar-cuadros-modernos-oleo.html" class="footer">Como Comprar?</a> <span class="Estilo1"></span></span></td>
+  </tr>
+</table>
+
+</body>
+</html>
+

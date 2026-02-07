@@ -1,0 +1,187 @@
+<?
+  require_once 'includes/db-connect.php';
+  
+  // Leer nombre de la pagina
+  $Pagina = $_SERVER['QUERY_STRING'];
+
+  // Remove / from URL
+  $LastChar = substr($Pagina, -1, 1);
+  if($LastChar == '/') $Pagina = substr($Pagina, 0, -1);
+
+  $Div = stripos($Pagina, "/");
+  $CuadroID = substr($Pagina, 0, $Div);
+  $ImageName = "/images/" . $CuadroID . "-" . substr($Pagina, $Div + 1) . ".jpg";
+
+  // Check if ImageName exist
+  if (!file_exists("." . $ImageName)) {
+    echo "The file $ImageName does not exist";
+    exit;
+  }
+  
+  // Read MySQL
+  $query = "select * from `Cuadros` where `CuadroID` = '$CuadroID'";
+  $dataCuadro =& $db->getRow($query, array(), DB_FETCHMODE_ASSOC);
+  $db->disconnect();
+  
+  
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Venta de Cuadros Modernos - '<?= $dataCuadro['Titulo']; ?>' por Teresa Piacentino</title>
+<META NAME="Description" CONTENT="Venta de cuadros modernos y cuadros abstractos al oleo. Galeria de arte donde comprar cuadros, pinturas de mariposas, cuadros de flores, paisajes naturales y urbanos, rincones, bodegones.">
+<META NAME="Keywords" CONTENT="venta de cuadros, venta de pinturas al oleo, cuadros originales pintados al oleo, venta de pinturas, galeria de arte, cuadros con precios, cuadros modernos al oleo">
+<style type="text/css">
+<!--
+td {
+	font-family:Tahoma;
+}
+
+.botonera {
+	color:#63594E;
+	text-decoration:none;
+	font-size:11px;
+}
+.consultar {	
+	color:#63594E;
+	font-size:10px;
+	text-decoration:none;
+}
+.descripcion {	
+	font-size:10px;
+	color:#FFFFFF;
+}
+.textoDescripcion {	
+	color:#fff;
+	font-size:11px;
+}
+
+.footer {
+	color:#63594E;
+	font-size:10px;
+	text-decoration:none;
+	padding:0 15px;
+}
+.barra {
+	color:#c3bfb7;
+}
+
+-->
+</style>
+</head>
+<body bgColor=#e4e1db leftMargin=0 topMargin=0 rightMargin=0 BACKMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center"><table width="746" border="0" cellpadding="0" cellspacing="0" align="center">
+      <tr>
+        <td width="454" valign="top"><img src="/images/header_01.jpg" width="454" height="70" /></td>
+        <td valign="top" background="/images/header_02.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="107" height="67" align="center" valign="bottom"><a href="/" class="botonera">Inicio</a></td>
+              <td width="75" align="center" valign="bottom"><a href="/galeria-cuadros-oleo-venta-online-precios.html" class="botonera">Galeria</a></td>
+              <td align="center" valign="bottom"><a href="/comprar-cuadros-modernos-oleo.html" class="botonera">Contacto</a></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" height="2"></td>
+  </tr>
+  <tr>
+    <td bgcolor="A29793" height="15"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="70" valign=middle width=100% align=center><FONT SIZE=2><B><U>IMPORTANTE</U></B>: Todos mis cuadros son originales y van acompañados de un Certificado de Autenticidad. <BR>Realizo envios internacionales y a toda la Argentina. Si este no es el cuadro que estas buscando, tambien hago obras por pedido. <BR>Ante cualquier consulta, no dudes en contactarme. Muchas Gracias!! Teresa</FONT></td>
+  </tr>
+  <tr>
+    <td align="center"><? echo "<IMG SRC=\"$ImageName\" $size[3] border=0>"; ?></td>
+  </tr>
+  <tr>
+    <td height="20">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" bgcolor="8B8276"><table width="745" border="0" cellspacing="0" cellpadding="0" class="descripcion">
+      <tr>
+        <td height="28" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100" height="22" bgcolor="63594E"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="25"><img src="/images/ico-info.gif" width="21" height="16" /></td>
+                  <td class="descripcion">DESCRIPCION</td>
+                </tr>
+            </table></td>
+            <td>&nbsp;</td>
+            <td width="190" align="center" bgcolor="CAC5BE"><a href="/contact-us.html?CuadroID=<?= $CuadroID; ?>" class="consultar">CONSULTAR SOBRE ESTA OBRA</a></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="20" align="left"><strong>T&Iacute;TULO:</strong> <?= $dataCuadro['Titulo']; ?></td>
+      </tr>
+      <tr>
+        <td height="20" align="left"><strong>A&Ntilde;O:</strong> <?= $dataCuadro['Ano']; ?></td>
+      </tr>
+      <tr>
+        <td height="20" align="left"><strong>TAMA&Ntilde;O:</strong> <?= $dataCuadro['Tamano']; ?></td>
+      </tr>
+      <tr>
+        <td height="20" align="left"><strong>T&Eacute;CNICA EMPLEADA:</strong> <?= $dataCuadro['Tecnica']; ?></td>
+      </tr>
+      <tr>
+        <td height="20" align="left"><table width="280" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="7"></td>
+          </tr>
+          <tr>
+            <td bgcolor="#FFFFFF" height="1"></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="55" height="18" bgcolor="63594E" align="center"><span class="descripcion"><strong>PRECIO</strong></span></td>
+                  <td width="5"></td>
+                  <td class="descripcion"><strong><?= $dataCuadro['Precio']; ?></strong></td>
+                </tr>
+            </table>
+			</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="10">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="left">* Los precios de las obras se encuentran en Pesos Argentinos.</td>
+      </tr>
+      <tr>
+        <td height="10">&nbsp;</td>
+      </tr>	  
+    </table>
+      </td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" height="2"></td>
+  </tr>
+  <tr>
+    <td height="20" align="center"><span class="footer"> <a href="/" class="footer">Inicio</a> <span class="barra">|</span> <a href="/galeria-cuadros-oleo-venta-online-precios.html" class="footer">Galeria</a> <span class="barra">|</span> <a href="/comprar-cuadros-modernos-oleo.html" class="footer">Contacto</a> <span class="Estilo1"></span></span></td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-295432-21");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

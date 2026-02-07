@@ -1,0 +1,614 @@
+<?
+   // Includes
+   require_once 'includes/db-connect.php';
+
+   // Informacion de Laminas
+   $query = "select * from `Laminas`";
+   $dataLaminas =& $db->getAssoc($query, true, array(), DB_FETCHMODE_ASSOC);
+      
+   // Informacion de Reproducciones
+   $query = "select * from `Reproducciones`";
+   $dataReproducciones =& $db->getAssoc($query, true, array(), DB_FETCHMODE_ASSOC);
+
+   // Determinar Precios a Mostrar
+   if($_SERVER['GEOIP_COUNTRY_CODE'] == 'AR') {
+
+	// Precios de las Laminas
+	foreach($dataLaminas as $LaminaID => $LaminaData) {
+		$LaminaLine[$LaminaID] = $LaminaData['Alto'] . " cm x " . $LaminaData['Ancho'] . " cm .................................................... " . $LaminaData['Precio'];
+	}
+
+	// Precios de las Reproducciones
+	foreach($dataReproducciones as $ReproduccionID => $ReproduccionData) {
+		$ReproduccionLine[$ReproduccionID] = $ReproduccionData['Alto'] . " cm x " . $ReproduccionData['Ancho'] . " cm ......................................... " . $ReproduccionData['Precio'];
+	}
+
+   } else {
+	
+	// Determinar Precio a Mostrar
+    switch ($_SERVER['GEOIP_CONTINENT_CODE']) {
+	
+	case 'EU'; // Europa
+	case 'AS'; // Asia
+		
+		foreach($dataLaminas as $LaminaID => $LaminaData) {
+			$LaminaLine[$LaminaID] = $LaminaData['Alto'] . " cm x " . $LaminaData['Ancho'] . " cm .................................................... " . $LaminaData['Precio_EUR'];
+		}
+
+		foreach($dataReproducciones as $ReproduccionID => $ReproduccionData) {
+			$ReproduccionLine[$ReproduccionID] = $ReproduccionData['Alto'] . " cm x " . $ReproduccionData['Ancho'] . " cm ......................................... " . $ReproduccionData['Precio_EUR'];
+		}
+
+		break;
+		
+	default;
+
+		foreach($dataLaminas as $LaminaID => $LaminaData) {
+			$LaminaLine[$LaminaID] = $LaminaData['Alto'] . " cm x " . $LaminaData['Ancho'] . " cm .................................................... " . $LaminaData['Precio_USD'];
+		}
+		
+		foreach($dataReproducciones as $ReproduccionID => $ReproduccionData) {
+			$ReproduccionLine[$ReproduccionID] = $ReproduccionData['Alto'] . " cm x " . $ReproduccionData['Ancho'] . " cm ......................................... " . $ReproduccionData['Precio_USD'];
+		}		
+
+	} 
+   
+   }
+
+   $title= "Venta de Reproducciones y Láminas de Arte | Calidad Museo | Teresa Piacentino";
+   $description= "Adquiera reproducciones sobre lienzo calidad museo y láminas de arte de alta calidad. Impresiones autografiadas con certificado de autenticidad. Envíos a todo el mundo.";   
+   $keywords = "reproducciones arte, laminas arte, impresiones lienzo, canvas arte, cuadros reproduccion, calidad museo, arte autografiado, prints arte, giclée, comprar reproducciones";
+   include("templates/home.php");   
+   commonHeader();
+?>
+
+<style>
+/* Estilos específicos para la página de reproducciones */
+.reproducciones-hero {
+    background: linear-gradient(135deg, #8B8276 0%, #63594E 100%);
+    padding: 30px 10px;
+    text-align: center;
+    color: #fff;
+    float: left;
+    width: 790px;
+}
+
+.reproducciones-hero h1 {
+    font-size: 28px;
+    margin: 0 0 15px 0;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.reproducciones-hero p {
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.reproducciones-hero .destacado {
+    background: rgba(255,255,255,0.15);
+    padding: 15px 25px;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+.reproducciones-hero .destacado span {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.reproducciones-hero .destacado strong {
+    font-size: 16px;
+}
+
+.productos-grid {
+    float: left;
+    width: 810px;
+}
+
+.producto-box {
+    float: left;
+    width: 392px;
+    background: #dcd6d3;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #b9b3aa;
+}
+
+.producto-box:nth-child(2n) {
+    float: right;    
+    margin-right: 0;
+}
+
+.producto-box-header {
+    background: #8B8276;
+    color: #fff;
+    padding: 15px 20px;
+}
+
+.producto-box-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.producto-box-header span {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.producto-box-content {
+    padding: 20px;
+}
+
+.producto-box-content p {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0 0 15px 0;
+    color: #63594E;
+}
+
+.producto-box .tamanos-lista {
+    background: #fff;
+    border: 1px solid #a39a90;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.producto-box .tamanos-lista h4 {
+    margin: 0 0 10px 0;
+    font-size: 11px;
+    color: #8B8276;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.producto-box .tamanos-lista span {
+    display: block;
+    font-size: 12px;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+    color: #63594E;
+}
+
+.producto-box .tamanos-lista span:last-child {
+    border-bottom: none;
+}
+
+.producto-box .nota-producto {
+    font-size: 10px;
+    color: #8B8276;
+    font-style: italic;
+}
+
+.caracteristicas {
+    float: left;
+    width: 810px;
+    background: #e9e6e2;
+    padding: 25px 0;
+    margin: 20px 0;
+}
+
+.caracteristicas ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.caracteristicas ul li {
+    display: inline-block;
+    padding: 0 30px;
+    font-size: 12px;
+    color: #63594E;
+    border-right: 1px solid #ccc;
+}
+
+.caracteristicas ul li:last-child {
+    border-right: none;
+}
+
+.caracteristicas ul li strong {
+    display: block;
+    font-size: 14px;
+    color: #8B8276;
+    margin-bottom: 3px;
+}
+
+/* Galería de muestras */
+.muestras-section {
+    float: left;
+    width: 810px;
+    margin-bottom: 10px;
+}
+
+.muestras-section h2 {
+    font-size: 18px;
+    color: #63594E;
+    border-bottom: 2px solid #a39a90;
+    padding-bottom: 10px;
+    margin: 0 0 20px 0;
+}
+
+.muestras-grid {
+    float: left;
+    width: 810px;
+}
+
+.muestra-item {
+    float: left;
+    width: 147px;
+    margin-right: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.muestra-item:nth-child(5n) {
+    margin-right: 0;
+}
+
+.muestra-item a {
+    display: block;
+    background: #dcd6d3;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.muestra-item a:hover {
+    background: #cdc7c0;
+}
+
+.muestra-item img {
+    border: none;
+    max-width: 127px;
+    max-height: 100px;
+}
+
+.muestra-item span {
+    display: block;
+    font-size: 9px;
+    color: #7f7770;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+/* Formulario de contacto */
+.contacto-reproducciones {
+    float: left;
+    width: 810px;
+    background: linear-gradient(180deg, #8B8276 0%, #7a7166 100%);
+    padding: 0;
+    margin-top: 10px;
+}
+
+.contacto-header {
+    background: #63594E;
+    padding: 20px 30px;
+    color: #fff;
+}
+
+.contacto-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.contacto-header p {
+    margin: 10px 0 0 0;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.contacto-body {
+    padding: 25px 30px;
+}
+
+.form-row {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-col {
+    float: left;
+    width: 48%;
+}
+
+.form-col:first-child {
+    margin-right: 4%;
+}
+
+.form-col label {
+    display: block;
+    color: #fff;
+    font-size: 11px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-col input[type="text"],
+.form-col input[type="email"],
+.form-col textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #E4E1DB;
+    color: #63594E;
+    font-size: 13px;
+    font-family: Tahoma, verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.form-col input[type="text"]:focus,
+.form-col input[type="email"]:focus,
+.form-col textarea:focus {
+    background: #fff;
+    outline: 2px solid #a39a90;
+}
+
+.form-col.full {
+    width: 100%;
+}
+
+.form-col textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-col select {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #E4E1DB;
+    color: #63594E;
+    font-size: 13px;
+    font-family: Tahoma, verdana, sans-serif;
+}
+
+.form-submit {
+    float: left;
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.form-submit button {
+    background: #970000;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.form-submit button:hover {
+    background: #b80000;
+}
+
+/* Info adicional */
+.info-envios {
+    float: left;
+    width: 810px;
+    background: #e9e6e2;
+    padding: 20px 25px;
+    margin-top: 25px;
+    font-size: 12px;
+    color: #63594E;
+    line-height: 18px;
+}
+
+.info-envios h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #8B8276;
+}
+
+.info-envios ul {
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+
+.info-envios ul li {
+    margin-bottom: 5px;
+}
+</style>
+
+		  <div id="main">
+		  	<div class="contentSeccion">
+				
+				<!-- Hero Section -->
+				<div class="reproducciones-hero">
+					<h1>Reproducciones y Láminas de Arte</h1>
+					<p>Lleve el arte a su hogar con nuestras reproducciones de calidad museo. Cada pieza es impresa con la más alta tecnología, sobre materiales premium, y viene autografiada por la artista con su correspondiente certificado de autenticidad.</p>
+					<div class="destacado">
+						<span>Tecnología Giclée</span>
+						<strong>La misma calidad que utilizan los museos más importantes del mundo</strong>
+					</div>
+				</div>
+				
+				<!-- Características -->
+				<div class="caracteristicas">
+					<ul>
+						<li><strong>Calidad Museo</strong>Impresión Giclée profesional</li>
+						<li><strong>Autografiadas</strong>Firmadas por la artista</li>
+						<li><strong>Certificado</strong>Autenticidad garantizada</li>
+						<li><strong>Envío Mundial</strong>A cualquier destino</li>
+					</ul>
+				</div>
+				
+				<!-- Productos -->
+				<div class="productos-grid">
+					
+					<!-- Reproducciones sobre Lienzo -->
+					<div class="producto-box">
+						<div class="producto-box-header">
+							<h2>Reproducciones sobre Lienzo</h2>
+							<span>Canvas / Tela - Calidad Museo</span>
+						</div>
+						<div class="producto-box-content">
+							<p>El tipo de reproducción de todas mis obras es la misma que utilizan los Museos más importantes del mundo. Están hechas sobre lienzo (canvas/tela) y son muy realistas, ¡casi como tener un óleo original!</p>
+							<div class="tamanos-lista">
+								<h4>Tamaños Disponibles:</h4>
+								<? foreach($ReproduccionLine as $LineID => $LineContent) { ?>
+								<span><?= $LineContent ?></span>
+								<? } ?>
+							</div>
+							<p class="nota-producto">* Otros tamaños disponibles a consultar<br>
+							* Consultar por reproducciones intervenidas con óleo, para una sensación aún más realista</p>
+						</div>
+					</div>
+					
+					<!-- Láminas -->
+					<div class="producto-box">
+						<div class="producto-box-header">
+							<h2>Láminas de Alta Calidad</h2>
+							<span>Impresión Premium Autografiada</span>
+						</div>
+						<div class="producto-box-content">
+							<p>Láminas de excelente calidad impresas en papel premium. Perfectas para enmarcar y decorar cualquier espacio. Todas vienen autografiadas en el reverso.</p>
+							<div class="tamanos-lista">
+								<h4>Tamaños Disponibles:</h4>
+								<? foreach($LaminaLine as $LineID => $LineContent) { ?>
+								<span><?= $LineContent ?></span>
+								<? } ?>
+							</div>
+							<p class="nota-producto">* Otros tamaños disponibles a consultar<br>
+							* Todas las láminas se envían protegidas en tubo</p>
+						</div>
+					</div>
+					
+				</div>
+				
+				<!-- Muestras -->
+				<div class="muestras-section">
+					<h2>Algunas de Nuestras Obras Disponibles</h2>
+					<div class="muestras-grid">
+						<div class="muestra-item">
+							<a href="/cuadro/2-lamina/">
+								<img src="images/2-lamina-mini.jpg" alt="Reproducción de arte" />
+								<span>Ver detalles</span>
+							</a>
+						</div>
+						<div class="muestra-item">
+							<a href="/cuadro/58-lamina/">
+								<img src="images/58-lamina-mini.jpg" alt="Reproducción de arte" />
+								<span>Ver detalles</span>
+							</a>
+						</div>
+						<div class="muestra-item">
+							<a href="/cuadro/3-lamina/">
+								<img src="images/3-lamina-mini.jpg" alt="Reproducción de arte" />
+								<span>Ver detalles</span>
+							</a>
+						</div>
+						<div class="muestra-item">
+							<a href="/cuadro/45-lamina/">
+								<img src="images/45-lamina-mini.jpg" alt="Reproducción de arte" />
+								<span>Ver detalles</span>
+							</a>
+						</div>
+						<div class="muestra-item" style="margin-right:0;">
+							<a href="/cuadro/41-lamina/">
+								<img src="images/41-lamina-mini.jpg" alt="Reproducción de arte" />
+								<span>Ver detalles</span>
+							</a>
+						</div>
+					</div>
+					<p style="text-align:center; margin-top:15px;">
+						<a href="/galeria-cuadros-oleo-venta-online-precios.html" style="color:#970000; font-weight:bold;">Ver toda la galería de obras disponibles &rarr;</a>
+					</p>
+				</div>
+				
+				<!-- Formulario de Contacto -->
+				<div class="contacto-reproducciones">
+					<div class="contacto-header">
+						<h2>Solicitar Información o Realizar un Pedido</h2>
+						<p>Complete el siguiente formulario y le responderemos dentro de las 24 horas. Si no recibe respuesta, por favor contáctenos nuevamente.</p>
+					</div>
+					<div class="contacto-body">
+						<form action="/formmail.php" name="ReproduccionesForm" method="post">
+							<input type="hidden" name="redirect" value="/gracias.html">
+							<input type="hidden" name="subject" value="Consulta por Reproducciones/Láminas">
+							
+							<div class="form-row">
+								<div class="form-col">
+									<label for="nombre">Nombre Completo *</label>
+									<input type="text" name="name" id="nombre" required />
+								</div>
+								<div class="form-col">
+									<label for="email">Correo Electrónico *</label>
+									<input type="email" name="email" id="email" required />
+								</div>
+							</div>
+							
+							<div class="form-row">
+								<div class="form-col">
+									<label for="telefono">Teléfono</label>
+									<input type="text" name="telp" id="telefono" />
+								</div>
+								<div class="form-col">
+									<label for="pais">País</label>
+									<input type="text" name="PaisDestino" id="pais" placeholder="Ej: Argentina, España, México..." />
+								</div>
+							</div>
+							
+							<div class="form-row">
+								<div class="form-col full">
+									<label for="interes">¿Qué tipo de reproducción le interesa?</label>
+									<select name="TipoReproduccion" id="interes">
+										<option value="">Seleccione una opción...</option>
+										<option value="Reproducción sobre Lienzo">Reproducción sobre Lienzo (Canvas)</option>
+										<option value="Lámina">Lámina de Alta Calidad</option>
+										<option value="Reproducción Intervenida">Reproducción Intervenida con Óleo</option>
+										<option value="Otro">Otro / Consulta General</option>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-row">
+								<div class="form-col full">
+									<label for="mensaje">Mensaje o Consulta *</label>
+									<textarea name="Comentario" id="mensaje" placeholder="Indique qué obra le interesa, tamaño deseado, o cualquier otra consulta..." required></textarea>
+								</div>
+							</div>
+							
+							<input type="hidden" name="Pais" value="<?= $_SERVER['HTTP_CF_IPCOUNTRY'] ?>" />
+							<input type="hidden" name="IP" value="<?= $_SERVER['REMOTE_ADDR'] ?>" />
+							<input type="hidden" name="Origen" value="Página de Reproducciones" />
+							
+							<div class="form-submit">
+								<button type="submit">Enviar Consulta</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				<!-- Info de envíos -->
+				<div class="info-envios">
+					<h3>Información Importante</h3>
+					<ul>
+						<li><strong>Envíos:</strong> Realizamos envíos a todo el mundo. El costo y tiempo de entrega varía según el destino.</li>
+						<li><strong>Embalaje:</strong> Todas las obras se envían cuidadosamente embaladas para garantizar su llegada en perfectas condiciones.</li>
+						<li><strong>Tamaños personalizados:</strong> Si necesita un tamaño específico no listado, consúltenos.</li>
+						<li><strong>Formas de pago:</strong> Aceptamos transferencias bancarias, PayPal, MercadoPago (Argentina) y Bitcoin.</li>
+					</ul>
+				</div>
+				
+			</div>
+		  </div>
+
+          	
+<? commonFooter(); ?>

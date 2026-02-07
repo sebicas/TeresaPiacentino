@@ -1,0 +1,95 @@
+td {
+	font-family:Tahoma;
+}
+ 
+.botonera {
+	color:#63594E;
+	text-decoration:none;
+	font-size:11px;
+}
+.consultar {	
+	color:#63594E;
+	font-size:10px;
+	text-decoration:none;
+}
+.descripcion {	
+	font-size:10pt;
+	color:#FFFFFF;
+}
+ 
+.descripcion-tit {	
+	font-size:10px;
+	color:#FFFFFF;
+}
+.textoDescripcion {	
+	color:#fff;
+	font-size:11px;
+}
+ 
+.footer {
+	color:#63594E;
+	font-size:10px;
+	text-decoration:none;
+	padding:0 15px;
+}
+.barra {
+	color:#c3bfb7;
+}
+ 
+.link-enviar {
+	background:url(images/ico-enviar_postal.gif) no-repeat;
+	padding-left:30px;
+	font-size:11px;
+	text-decoration:none;
+	color:#63594E;
+	background-position:0 4px;
+}
+ 
+.intro {
+	font-size:11px;
+	color:#63594E;
+	text-align:center;
+}
+ 
+.form {
+	font-size:12px;
+	color:#63594E;
+	width:628px;
+	height:100px;
+	background:#d9d5d1;
+	border:solid 1px #cdc7c2;
+	margin:0 auto;
+}
+ 
+.form .title {
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 0;
+	text-align:center;
+	display:block;
+}
+ 
+.form .text {
+	padding:8px 0 0 17px;
+	display:block;
+	clear:both;
+}
+ 
+.form input {
+	float:left;
+}
+ 
+.form form {
+	padding:5px 0 0 17px;
+	float:left;
+}
+ 
+.form .field {
+	width:157px;
+	color:#63594E;
+	font-size:12px;
+	padding:3px 5px;
+	background-color:#E4E1DB;
+	border:solid 1px #FFFFFF;
+	margin-right:5px;
+}

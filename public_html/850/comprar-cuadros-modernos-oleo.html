@@ -1,0 +1,53 @@
+<?
+   require_once '../includes/db-connect.php';
+  
+   $query = "select * from `Cuadros` where `CuadroID` = '$CuadroID'";
+   $dataCuadro =& $db->getRow($query, array(), DB_FETCHMODE_ASSOC);
+   $db->disconnect();
+
+   $title= "Venta de Cuadros Originales Pintados al Oleo - Galeria Online con Precios";
+   $description= "En nuestro sitio puede comprar obras de arte, visitar la galeria de cuadros online o encargar una obra por pedido";   
+   $keywords = "cuadros, cuadros al oleo, venta cuadros, venta de cuadros, arte cuadros, cuadros pintores, venta de arte, copias de pinturas, venta de pintura, cuadros famosos, comprar cuadros, comprar arte, comprar pintura";
+   include("../templates/home.php");   
+   commonHeader();
+
+?>
+
+          <div id="main">
+            <div class="contactSeccion">
+                <div class="intro">
+                    Para contactarse o hacer una consulta sobre alguna de estas obras complete el siguiente formulario.
+                    </div>
+                    
+ <div class="wrapform">                 
+                    <div class="boxForm">
+                    <form action="/formmail.php" name="ContactForm" method="post">
+                    <input type="hidden" name="redirect" value="/gracias.html">
+                    <? if($dataCuadro) { ?> 
+                    <input type="hidden" name="subject" value="Consulta por cuadro <?= $CuadroID; ?>">
+                    <? } else { ?>
+                    <input type="hidden" name="subject" value="Contacto desde TeresaPiacentino.com">
+                    <? } ?>
+                                
+                        <div class="box1">
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" name="name" id="Nombre" />
+                        </div>
+                        <div class="box2">
+                            <label for="Email">E-mail</label>
+                            <input type="text" name="email" id="Email" />
+                        </div>
+                        <div class="box3">
+                            <label for="Comentario">Comentario</label>
+                            <textarea name="Comentario" id="comentario" cols="1" rows="4"></textarea>
+                        </div>
+                        <div class="botonForm">
+                            <a href="javascript:document.ContactForm.submit();">ENVIAR</a>
+                        </div>
+                         
+                    </form>
+                    </div>
+</div>                  
+            </div>
+          </div>
+<? commonFooter(); ?>

@@ -1,0 +1,56 @@
+<HTML>
+<!-- CREATION DATE: 5/21/2011 -->
+<HEAD>
+<TITLE></TITLE>
+<META NAME="Description" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Author" CONTENT="C0Ke2000">
+<META NAME="Generator" CONTENT="AceExpert">
+</HEAD>
+<BODY>
+
+<?php
+ header("Content-type: text/plain");
+ header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+ header("Cache-Control: no-store, no-cache, must-revalidate");
+ header("Cache-Control: post-check=0, pre-check=0", false);
+ header("Pragma: no-cache");
+ 
+ $url ="https://www.mercadopago.com/mla/orderpreference" ;  
+ $postData = array("acc_id" => "24938561";
+    "token" => "Wh1Fs3o4RPXm4c%2FcdO5KX3PjQIA%3D";
+    "url_succesfull" => "http://www.tusitio.com/pago_exitoso"; 
+    "url_process" => "http:// www.tusitio.com/pago_en_proceso"; 
+    "url_cancel" => "http:// www.tusitio.com/pago_rechazado"; 
+    "item_id" => "identificador-producto"; 
+    "name" => "Nombre del producto"; 
+    "currency" => "ARG"; 
+    "price" => "10.0"; 
+    "shipping_cost" => ""; 
+    "ship_cost_mode" => "FS"; 
+    "op_retira" => "B"; 
+    "extra_part" => "informacion-a-concatenar-en-urls-de-redireccion"; 
+    "seller_op_id" => "identificador-de-pago-del-vendedor");   
+    "cart_name" => "nombre-del-comprador");   
+    "cart_surname" => "apellido-del-comprador");   
+    "cart_email" => "email-del-comprador");   
+ 
+    $elements = array();  
+ foreach ($postData as $name=>$value) {  
+    $elements[] = "{$name}=".urlencode($value);  
+ } 
+ $postData = implode ("&", $elements);
+ 
+ $handler = curl_init();  
+ curl_setopt($handler, CURLOPT_URL, $url);  
+ curl_setopt($handler, CURLOPT_POST,true);  
+ curl_setopt($handler, CURLOPT_POSTFIELDS, $postData);
+ $response = curl_exec ($handler);  
+ curl_close($handler);
+ 
+ echo $response;
+ ?>
+
+</BODY>
+</HTML>

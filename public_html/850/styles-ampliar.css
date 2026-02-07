@@ -1,0 +1,155 @@
+/* estilos AMPLIAR */
+
+.bodyAmpliar {
+	margin:0;
+	background:#E4E1DB;
+	font:10pt "Tahoma", verdana, sans-serif;
+}
+
+.headerAmpliar {
+	background:url(images/ampliar-header-bg.gif) repeat-x;
+	width:100%;
+	padding-top:13px;
+}
+
+.headerAmpliar .botonera {
+	background:url(images/header.jpg) no-repeat top left;
+	margin:0 auto;
+	width:750px;
+	height:74px;
+}
+
+.headerAmpliar .botones {
+	padding:36px 0 0 385px;
+}
+
+.botonera a {
+	color:#63594E;
+	text-decoration:none;
+	font-size:11px;
+}
+
+.botonera a:hover {
+	color:#A39A90;
+}
+
+.botonera .boton1 {
+	width:76px;
+	margin-right:14px;
+	display:block;
+	float:left;
+	text-align:center;
+	padding:4px 0;
+}
+
+.botonera .boton2 {
+	width:76px;
+	margin-right:14px;
+	display:block;
+	float:left;
+	text-align:center;
+	padding:4px 0;
+}
+
+.botonera .boton4 {
+	width:76px;
+	display:block;
+	float:left;
+	text-align:center;
+	padding:4px 0;
+}
+
+.ObraAmpliar {
+	text-align:center;
+	padding:15px 0;
+	width:100%;
+}
+
+.footerAmpliar {
+	width:100%;
+}
+
+.footerAmpliar .contenedorInfo {
+	background:#8B8276;
+	padding-bottom:18px;
+}
+
+.infoObra {
+	margin:0 auto;
+	width:750px;
+}
+
+.titDescripcion {
+	float:left;
+	width:73px;
+	background:url(images/ico-info.gif) no-repeat center left #63594E;
+	padding-left:27px;
+	line-height:24px;
+	color:#FFFFFF;
+	font-size:10px;
+	margin:0 0 10px 20px;
+}
+
+.infoObra a {
+	float:left;
+	width:170px;
+	line-height:24px;
+	color:#63594E;
+	font-size:10px;
+	margin:0 0 10px 450px;
+	background-color:#CAC5BE;
+	text-decoration:none;
+	text-align:center;
+}
+
+.infoObra a:hover {
+	background-color:#BCB6AD;
+}
+
+.infoObra p {
+	clear:both;
+	margin:0 0 8px 20px;
+	color:#FFFFFF;
+	font-size:11px;
+}
+
+.infoObra p span {
+	font-weight:bold;
+	font-size:10px;
+	padding-right:3px;
+}
+
+.comboPrecio {
+	border-top:solid 1px #CAC2B7;
+	width:300px;
+	font-size:10px;
+	color:#fff;
+	font-weight:bold;
+	margin-left:20px;
+}
+
+.comboPrecio span {
+	background-color:#63594E;
+	padding:2px 5px 5px 5px;
+	line-height:18px;
+	margin:0 5px 0 0;
+}
+
+.bloqueFooter {
+	margin:0 auto;
+	width:100%;
+	text-align:center;
+	border-top:solid 2px #fff;
+}
+
+.bloqueFooter a {
+	font-size:10px;
+	text-decoration:none;
+	color:#63594E;
+	padding:0 15px;
+	line-height:24px;
+}
+
+.bloqueFooter a:hover {
+	text-decoration:underline;
+}

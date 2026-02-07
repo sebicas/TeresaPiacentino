@@ -1,0 +1,21 @@
+<?
+   require_once 'DB.php';
+   $dsn = 'mysqli://teresapi_teresap:46rflHkV@mysql/teresapi_base';
+   $db =& DB::connect($dsn);
+   if (PEAR::isError($db)) die($db->getMessage());
+  
+   $query = "select * from `Cuadros` where `CuadroID` = '$CuadroID'";
+   $dataCuadro =& $db->getRow($query, array(), DB_FETCHMODE_ASSOC);
+   $db->disconnect();
+
+   $title= "Venta de Cuadros Originales Pintados al Oleo - Galeria Online con Precios";
+   $description= "En nuestro sitio puede comprar obras de arte, visitar la galeria de cuadros online o encargar una obra por pedido";   
+   $keywords = "cuadros, cuadros al oleo, venta cuadros, venta de cuadros, arte cuadros, cuadros pintores, venta de arte, copias de pinturas, venta de pintura, cuadros famosos, comprar cuadros, comprar arte, comprar pintura";
+   include("templates/home.php");   
+   commonHeader();
+
+?>
+
+		  <div id="main">
+			<div class="contactSeccion">
+				<div class="intro">

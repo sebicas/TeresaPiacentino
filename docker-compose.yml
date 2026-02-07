@@ -1,0 +1,86 @@
+services:
+  # PHP/Apache Web Server
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: teresapiacentino-web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-teresapi_base}
+      - MYSQL_USER=${MYSQL_USER:-teresapi}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-WtKPvPjB9AjwtyPf}
+    volumes:
+      # Mount public_html for development (optional, comment out for production)
+      - ./public_html:/var/www/html:rw
+      # MSMTP config for email
+      - ./docker/msmtp/msmtprc:/etc/msmtprc:ro
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - teresapiacentino-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+  # MySQL Database
+  mysql:
+    image: mysql:5.7
+    platform: linux/amd64
+    container_name: teresapiacentino-mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-rootpassword}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-teresapi_base}
+      - MYSQL_USER=${MYSQL_USER:-teresapi}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-WtKPvPjB9AjwtyPf}
+    volumes:
+      # Persist database data
+      - mysql-data:/var/lib/mysql
+      # Initialize database on first run
+      - ./db/teresapi_base.sql:/docker-entrypoint-initdb.d/01-teresapi_base.sql:ro
+    ports:
+      - "3306:3306"
+    networks:
+      - teresapiacentino-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-rootpassword}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=latin1 --collation-server=latin1_swedish_ci
+
+  # phpMyAdmin (optional, for database management)
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: teresapiacentino-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_USER=${MYSQL_USER:-teresapi}
+      - PMA_PASSWORD=${MYSQL_PASSWORD:-WtKPvPjB9AjwtyPf}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-rootpassword}
+    depends_on:
+      - mysql
+    networks:
+      - teresapiacentino-network
+    profiles:
+      - debug
+
+networks:
+  teresapiacentino-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local

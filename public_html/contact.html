@@ -1,0 +1,68 @@
+<?
+   require_once 'includes/db-connect.php';
+  
+   $query = "select * from `Cuadros` where `CuadroID` = '$CuadroID'";
+   $dataCuadro =& $db->getRow($query, array(), DB_FETCHMODE_ASSOC);
+   $db->disconnect();
+
+   $title= "Venta de Cuadros Originales Pintados al Oleo - Galeria Online con Precios";
+   $description= "En nuestro sitio puede comprar obras de arte, visitar la galeria de cuadros online o encargar una obra por pedido";   
+   $keywords = "cuadros, cuadros al oleo, venta cuadros, venta de cuadros, arte cuadros, cuadros pintores, venta de arte, copias de pinturas, venta de pintura, cuadros famosos, comprar cuadros, comprar arte, comprar pintura";
+   include("templates/home_en.php");   
+   commonHeader();
+
+?>
+
+		  <div id="main">
+			<div class="contactSeccion">
+				<div class="intro">
+					To make an inquiry or ask about any print or painting, please complete the form below. <br /><span class="text-bold">Your message will be answered within 24 hours. If you do not receive a response, please contact us again. Thank you very much.</span>
+					</div>
+					
+ <div class="wrapform">					
+					<div class="boxForm">
+					<form action="/formmail.php" name="ContactForm" method="post">
+					<input type="hidden" name="redirect" value="/thank-you.html">
+					<? if($dataCuadro) { ?> 
+					<input type="hidden" name="subject" value="Consulta por cuadro <?= $CuadroID; ?>: '<?= $dataCuadro['Titulo']; ?>'">
+					<input type="hidden" name="LinkCuadro" value="http://www.teresapiacentino.com/cuadro/<?= $CuadroID; ?>/">					
+					<? } else { ?>
+					<input type="hidden" name="subject" value="Contacto desde TeresaPiacentino.com">
+					<? } ?>
+						<div class="box1">
+							<label for="Nombre">Name</label>
+							<input type="text" name="name" id="Nombre" />
+						</div>
+						<div class="box2">
+							<label for="Email">E-mail</label>
+							<input type="text" name="email" id="Email" />
+						</div>
+                        <div class="box1">
+							<label for="Nombre">Phone</label>
+							<input type="text" name="telp" id="TelefonoP" />
+						</div>
+						<div class="box2">
+							<label for="Email">Alternative Phone</label>
+							<input type="text" name="tela" id="TelefonoA" />
+						</div>
+						
+					  <div class="box3">
+							<label for="Comentario">Comments</label>
+							<textarea name="Comentario" id="comentario" cols="1" rows="4"></textarea>
+						</div>
+						<div class="botonForm">
+							<a href="javascript:document.ContactForm.submit();">SEND</a>
+						</div>
+						
+						<input type="hidden" name="Pais" value="<?= $_SERVER['HTTP_CF_IPCOUNTRY'] ?>" />
+						<input type="hidden" name="IP" value="<?= $_SERVER['REMOTE_ADDR'] ?>" />
+						 
+					</form>
+					</div>
+					
+</div>					
+			</div>
+		  </div>
+          	
+<? commonFooter(); ?>
+

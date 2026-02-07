@@ -1,0 +1,36 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+!README.md
+
+# Database dumps (imported separately)
+db/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files (not needed in image)
+docker-compose*.yml
+Dockerfile*
+.dockerignore
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Conductor workspace
+.context/

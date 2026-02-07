@@ -1,0 +1,1470 @@
+body {
+	background:#E4E1DB; 
+	margin:0;
+	font:12px "Tahoma", verdana, sans-serif;
+	color:#63594E;
+}
+
+.bodyAmpliar {
+	background:url(images/header-ampliar-bg.jpg) repeat-x;
+	margin:0;
+	font:10pt "Tahoma", verdana, sans-serif;
+}
+
+#container {
+	width:850px; 
+	margin:15px auto;
+	background-color:#A39A90;
+}
+
+#container .text-bold {
+	font-weight:bold;
+}
+
+/* estilos HEADER */
+
+#header {
+	background:url(images/header.jpg) no-repeat top left;
+	height:57px;
+	border-bottom:solid 2px #FFFFFF;
+	position:relative;
+}
+
+#header .links {
+	padding:35px 0 0 390px;
+}
+
+#header .links a {
+    color:#63594E;
+    text-decoration:none;
+    font-size:11px;
+    width:75px;
+    margin-right:16px;
+    float:left;
+    text-align:center;
+    padding-top:3px;
+}
+
+#header .links a:hover {
+    color:#A39A90;
+}
+
+/* estilos BODY */
+
+#main .banner img {
+    float:left;
+    border:none;
+}
+
+#main .banner .button {
+    float:left;
+    width:446px;
+    height:239px;
+    background:url(images/banner-home_02.jpg) no-repeat;
+}
+
+#main .banner .button a {
+    float:right;
+    width:96px;
+    height:30px;
+    margin-top:202px;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    font-weight:bold;
+    font-size:14px;
+    background:#63594f;
+    padding-top:7px;
+}
+
+#main .banner .button a:hover {
+    color:#E4E1DB;
+}
+
+.galleryHome {
+	padding:20px 20px;
+}
+
+.galleryHome h1 {
+	margin:0;
+	color:#FFFFFF;
+	font-size:19px;
+	font-weight:normal;
+	background:url(images/bullet.gif) no-repeat center left;
+	padding-left:10px;
+}
+
+.galeria {
+	float:left;
+	margin-top:15px;
+	border-bottom:1px solid #93897F;
+	padding-bottom:7px;
+	border-top:1px solid #93897F;
+	padding-top:7px;
+}
+
+.contenedorFloat {
+	float:left;
+	width:148px;
+	height:130px;
+	background:url(images/gallery-bg.jpg) repeat top left;
+	border:solid 7px #A39A90;
+}
+
+.contenedorMini {
+	width:148px;
+	height:130px;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+
+.contenedorMini a:hover{
+	border:solid 3px #A39A90;
+}
+
+.contenedorMini *{
+	vertical-align:middle;
+}
+
+.contenedorMini span {
+	height:100%;
+	display:inline-block;
+}
+
+.contenedorMini img {
+	border:none;
+}
+
+/* estilos FOOTER */
+
+#footer {
+	clear:both; 
+	background:#E4E1DB;
+	border-top:solid 2px #FFFFFF;
+	text-align:center;
+	color:#C3BFB7;
+}
+
+#footer a {
+	font-size:10px;
+	text-decoration:none;
+	color:#63594E;
+	padding:0 15px;
+	line-height:24px;
+}
+
+#footer a:hover {
+	text-decoration:underline;
+}
+
+.footerAmpliar {
+	color:#C3BFB7;
+	margin-left:25px;
+}
+
+.footerAmpliar a {
+	font-size:10px;
+	text-decoration:none;
+	color:#63594E;
+	padding:0 15px;
+	line-height:24px;
+}
+
+.footerAmpliar a:hover {
+	text-decoration:underline;
+}
+
+
+/* SECCION GALLERY */
+
+.gallerySeccion {
+	float:left;
+	background-color:#C9C3BB;
+	padding:25px 29px 5px 29px;
+	margin:15px 0;
+	width:692px;
+	font-size:10px;
+	color:#63594E;
+}
+
+.contenedorFloatSeccion {
+	float:left;
+	width:156px;
+	height:130px;
+	background:url(images/gallery-bg.jpg) repeat top left;
+	border:solid 8px #C9C3BB;
+}
+
+.contenedorFloatSeccion2 {
+	float:left;
+	width:328px;
+	height:130px;
+	background:url(images/gallery-bg.jpg) repeat top left;
+	border:solid 8px #C9C3BB;
+}
+
+.contenedorMini2 {
+	width:328px;
+	height:130px;
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+
+.contenedorMini2 a:hover{
+	border:solid 3px #A39A90;
+}
+
+.contenedorMini2 *{
+	vertical-align:middle;
+}
+
+.contenedorMini2 span {
+	height:100%;
+	display:inline-block;
+}
+
+.contenedorMini2 img {
+	border:none;
+}
+
+.contenedorFloatSeccion .boxAmpliar {
+	background-color:#A39A90;
+	padding:3px 2px;
+	font-size:9px;
+}
+
+.contenedorFloatSeccion .boxAmpliar .linkAmpliar {
+	background:url(images/ico-lupa.gif) no-repeat center left;
+	padding:3px 0 3px 15px;
+	margin:0 10px 0 3px;
+}
+
+.contenedorFloatSeccion2 .boxAmpliar {
+	background-color:#A39A90;
+	padding:3px 2px;
+	font-size:9px;
+}
+
+.contenedorFloatSeccion2 .boxAmpliar .linkAmpliar {
+	background:url(images/ico-lupa.gif) no-repeat center left;
+	padding:3px 0 3px 15px;
+	margin:0 180px 0 3px;
+}
+
+.galeriaSeccion {
+	float:left;
+	margin-bottom:7px;
+}
+
+.boxPaginado {
+	float:left;
+	width:692px;
+	border-top:1px solid #AFA89F;
+	padding-top:10px;
+	margin-top:10px;
+}
+
+.paginadoPrevious {
+	float:left;
+	width:248px;
+	text-align:right;
+}
+
+.gallerySeccion a {
+	text-decoration:none;
+	color:#63594E;
+}
+
+.gallerySeccion a:hover {
+	text-decoration:underline;
+}
+
+.paginadoNumeros {
+	float:left;
+	width:195px;
+	text-align:center;
+}
+
+.paginadoNumeros a {
+	font-weight:bold;
+	padding:0 4px;
+}
+
+.paginadoNumeros a:hover {
+	background-color:#A39A90;
+	color:#FFFFFF;
+}
+
+.paginadoNext {
+	float:left;
+}
+
+/* SECCION CONTACTO */
+
+.contactSeccion .wrapform {
+    padding-left:67px;
+}
+
+.contactSeccion {
+	background-color:#C9C3BB;
+	padding:20px 29px;
+	float:left;
+	margin-top:15px;
+	width:792px;
+	font-size:10px;
+	color:#63594E;
+}
+
+.contactSeccion .intro {
+	background:url(images/sobre.jpg) no-repeat top left;
+	padding:10px 0 15px 150px;
+	font-size:12px;
+	line-height:16px;
+}
+
+.contactSeccion .boxForm {
+    background-color:#A39A90;
+    margin:20px 0 10px 0;
+    padding:20px 20px 8px 20px;
+    color:#63594E;
+    font-size:12px;
+    border:solid 1px #fff;
+    float:left;
+    width:616px;
+}
+
+.contactSeccion .boxForm .box1 {
+	float:left;
+	width:308px;
+	background-color:#C9C3BB;
+}
+
+.boxForm .box1 label {
+	display:block;
+	background:url(images/ico-name.gif) no-repeat center left #B9B2A9;
+	padding:5px 0 5px 33px;
+}
+
+.contactSeccion .boxForm .box2 {
+	float:left;
+	width:308px;
+	background-color:#C9C3BB;
+}
+
+.boxForm #tel {
+	background:url(images/ico-tel.gif) no-repeat center left #B9B2A9;
+}
+
+.boxForm .box2 label {
+	display:block;
+	background:url(images/ico-mail.gif) no-repeat center left #B9B2A9;
+	padding:5px 0 5px 38px;
+}
+
+.boxForm .box3 label {
+	display:block;
+	background:url(images/ico-coment.gif) no-repeat center left #B9B2A9;
+	padding:5px 0 5px 35px;
+}
+
+.contactSeccion .boxForm .box3 {
+	clear:both;
+	width:616px;
+	background-color:#C9C3BB;
+}
+
+.boxForm input {
+	width:263px;
+	color:#63594E;
+	font-size:12px;
+	padding:5px;
+	background-color:#E4E1DB;
+	border:solid 1px #FFFFFF;
+	margin:15px;
+
+}
+
+.contactSeccion .boxForm .box3 textarea {
+	width:570px;
+	color:#63594E;
+	font-size:12px;
+	padding:5px;
+	background-color:#E4E1DB;
+	border:solid 1px #FFFFFF;
+	margin:15px 15px 5px 15px;
+}
+
+.boxForm .botonForm {
+	clear:both;
+	display:block;
+	background:url(images/bot-send-bg.jpg) repeat-x;
+	text-align:right;
+}
+
+.boxForm .botonForm a {
+	display:block;
+	background:url(images/bot-send.jpg) no-repeat top right;
+	padding:16px 13px 17px 0;
+	font-weight:bold;
+	color:#fff;
+	text-decoration:none;
+}
+
+/* AMPLIAR */
+
+.headerAmpliar {
+	width:100%;
+	height:88px;
+}
+
+.header2 {
+	background:url(images/header.jpg) no-repeat top left;
+	padding:35px 0 0 475px;
+	height:19px;
+	margin:15px 0 0 25px;
+}
+
+.header2 a {
+	color:#63594E;
+	text-decoration:none;
+	font-size:11px;
+}
+
+.header2 a:hover {
+	color:#A39A90;
+}
+
+.header2 .boton1 {
+	width:76px;
+	margin-right:14px;
+	display:block;
+	float:left;
+	text-align:center;
+	padding:4px 0;
+}
+
+.header2 .boton2 {
+	width:76px;
+	margin-right:14px;
+	display:block;
+	float:left;
+	text-align:center;
+	padding:4px 0;
+}
+
+.header2 .boton4 {
+	width:76px;
+	display:block;
+	float:left;
+	text-align:center;
+	padding:4px 0;
+}
+
+.vistaObra {
+	text-align:center;
+	width:100%;
+}
+
+.vistaObra img {
+	padding:20px 0;
+	border:none;
+}
+
+.infoObra {
+	background:#8B8276;
+	border-bottom:solid 2px #fff;
+	width:360px;
+	padding-bottom:20px;
+	padding-left:25px;
+}
+
+.titDescripcion {
+	float:left;
+	width:73px;
+	background:url(images/ico-info.gif) no-repeat center left #63594E;
+	padding-left:27px;
+	line-height:24px;
+	color:#FFFFFF;
+	font-size:10px;
+	margin:0 0 10px 20px;
+}
+
+.infoObra a {
+	float:left;
+	width:150px;
+	line-height:24px;
+	color:#63594E;
+	font-size:10px;
+	margin:0 0 10px 50px;
+	background-color:#CAC5BE;
+	text-decoration:none;
+	text-align:center;
+}
+
+.infoObra a:hover {
+	background-color:#BCB6AD;
+}
+
+.infoObra p {
+	clear:both;
+	margin:0 0 8px 20px;
+	color:#FFFFFF;
+	font-size:11px;
+}
+
+.infoObra p span {
+	font-weight:bold;
+	font-size:10px;
+	padding-right:3px;
+}
+
+.comboPrecio {
+	border-top:solid 1px #CAC2B7;
+	width:300px;
+	font-size:10px;
+	color:#fff;
+	font-weight:bold;
+	margin-left:20px;
+}
+
+.comboPrecio span {
+	background-color:#63594E;
+	padding:2px 5px 5px 5px;
+	line-height:18px;
+	margin:0 5px 0 0;
+}
+
+/* SECCION GRACIAS */
+
+.graciasSeccion {
+	background-color:#C9C3BB;
+	padding:20px 29px;
+	float:left;
+	margin-top:15px;
+	width:792px;
+	font-size:10px;
+	color:#63594E;
+}
+
+.graciasSeccion .boxGracias {
+	margin:50px 67px 40px 67px;
+	color:#63594E;
+	font-size:12px;
+	border:solid 1px #fff;
+	background:url(images/sobre2.jpg) #B9B2A9 no-repeat top left;
+	padding:65px 25px 55px 25px;
+	font-size:14px;
+	line-height:20px;
+	text-align:center;
+}
+
+.graciasSeccion .boxGracias span {
+	font-size:16px;
+	font-weight:bold;
+	color:#fff;
+}
+
+/* SECCION BIOGRAFIA */
+
+.biografiaSeccion {
+	background:#C9C3BB url(images/biografia-bg.gif) no-repeat bottom center;
+	padding:15px 29px 100px 29px;
+	float:left;
+	margin-top:15px;
+	width:792px;
+	color:#63594E;
+}
+
+.biografia {
+	float:left;
+	width:482px;
+	background:url(images/img-biografia.jpg) no-repeat top left;
+	padding:0 0 0 310px;
+	margin-top:15px;
+}
+
+.biografia p {
+	font-size:12px;
+	margin:0 0 15px 0;
+}
+
+.biografia p .italic {
+	font-style:italic;
+	font-weight:normal;
+}
+
+.biografia .nombre {
+	font-size:16px;
+	font-weight:bold;
+}
+
+.biografiaSeccion .titExpo {
+	background:url(images/ico-expo.gif) no-repeat;
+	padding:0 0 10px 30px;
+	border-bottom:1px solid #aaa49f;
+	font-size:16px;
+	font-weight:bold;
+	float:left;
+	width:760px;
+	margin-bottom:15px;
+}
+
+.biografiaSeccion .colLeft {
+	float:left;
+	width:390px;
+	font-size:12px;
+}
+
+.biografiaSeccion .colRight {
+	float:left;
+	width:390px;
+	font-size:12px;
+}
+
+.biografiaSeccion .bulletExpo {
+	background:url(images/bullet-expo.gif) no-repeat top left;
+	padding-left:12px;
+	display:block;
+	margin-bottom:10px;
+}
+
+.biografiaSeccion .fechas {
+	font-weight:bold;
+	display:block;
+}
+
+.biografiaSeccion .fechas a {
+	font-weight:normal;
+	font-size:11px;
+	text-decoration:none;
+	color:#A39A90;
+}
+
+.biografiaSeccion .fechas a:hover {
+	color:#fff;
+}
+
+.biografiaSeccion .muestra {
+	font-style:italic;
+}
+
+/* SECCION EXPO */
+
+.tituloExpo {
+	background:url(images/expo-bgTit.jpg) repeat-y #d7d2ce;
+	padding:20px 0 20px 110px;
+	float:left;
+	width:740px;
+	margin-top:15px;
+}
+
+.tituloExpo h1 {
+	margin:0;
+	font-size:16px;
+	background:url(images/logo-palermoFest.jpg) no-repeat;
+	padding:43px 0 0 170px;
+	color:#63594E;
+}
+
+.expoSeccion {
+	background-color:#C9C3BB;
+	padding:20px 29px;
+	float:left;
+	width:792px;
+	font-size:10px;
+	color:#63594E;
+}
+
+.expoSeccion p {
+	font-size:12px;
+	margin:0 0 15px 0;
+}
+
+.expoSeccion .obras {
+	background:#dcd6d3;
+}
+
+.expoSeccion .obras h2 {
+	background:url(images/ico-lupa2.gif) no-repeat center left #7f7770;
+	padding-left:27px;
+	line-height:24px;
+	color:#FFFFFF;
+	font-size:10px;
+	margin:0 0 19px 0;
+	font-weight:normal;
+	text-transform:uppercase;
+	width:115px;
+}
+
+.expoSeccion .obras img {
+	border:none;
+	margin:0 0 19px 11px;
+}
+
+.expoSeccion .lugar {
+	float:left;
+	width:792px;
+	border-top:1px solid #93897F;
+	margin-top:20px;
+	padding-top:20px;
+}
+
+.expoSeccion .lugar img {
+	margin-right:20px;
+	float:left;
+	width:109px;
+}
+
+.expoSeccion .datos {
+	float:left;
+	width:405px;
+	font-size:12px;
+}
+
+.expoSeccion .datos .tit {
+	font-size:16px;
+	font-weight:bold;
+	color:#63594E;
+	margin-bottom:5px;
+	display:block;
+}
+
+.expoSeccion .datos p {
+	margin:0;
+}
+
+.expoSeccion .datos .bold {
+	font-weight:bold;
+}
+
+.expoSeccion .datos .horario {
+	border-top:1px solid #93897F;
+	margin-top:5px;
+	padding-top:5px;
+	display:block;
+}
+
+/* SECCION FERIA NAVIDAD */
+
+.tituloFeriaNav {
+	background:url(images/expo-bgTit.jpg) repeat-y #d7d2ce;
+	padding:30px 0 20px 60px;
+	float:left;
+	width:790px;
+	margin-top:15px;
+}
+
+.tituloFeriaNav h1 {
+	margin:0;
+	font-size:16px;
+	background:url(images/feriaNav-logo.jpg) no-repeat;
+	padding:5px 0 35px 360px;
+	color:#63594E;
+}
+
+.feriaNavSeccion {
+	background-color:#C9C3BB;
+	padding:20px 29px;
+	float:left;
+	width:792px;
+	font-size:10px;
+	color:#63594E;
+}
+
+.feriaNavSeccion p {
+	font-size:12px;
+	margin:0 0 15px 0;
+}
+
+.feriaNavSeccion .boxes {
+	float:left;
+	width:792px;
+}
+
+.feriaNavSeccion .boxes .taller {
+	float:left;
+	width:415px;
+	background:url(images/feriaNav-bgTaller.jpg) repeat-y #e2dfda;
+	height:224px;
+}
+
+.feriaNavSeccion .boxes .taller h2 {
+	background:url(images/feriaNav-icoTaller.gif) no-repeat center left #7f7770;
+	padding-left:25px;
+	line-height:24px;
+	color:#FFFFFF;
+	font-size:10px;
+	margin:0;
+	font-weight:normal;
+	width:80px;
+}
+
+.feriaNavSeccion .boxes .taller .contenido {
+	background:url(images/feriaNav-imgTaller.jpg) no-repeat;
+	padding:0 0 0 157px;
+	margin:13px;
+}
+
+.feriaNavSeccion .boxes .taller .contenido p {
+	margin:0 0 10px 0;
+}
+
+.feriaNavSeccion .boxes .taller .contenido .bold {
+	font-weight:bold;
+}
+
+.feriaNavSeccion .boxes .sorteo {
+	float:left;
+	width:350px;
+	background:url(images/feriaNav-bgSorteo.jpg) repeat-x;
+	margin-left:27px;
+	height:224px;
+}
+
+.feriaNavSeccion .boxes .sorteo h2 {
+	background:#7f7770;
+	padding-left:15px;
+	line-height:24px;
+	color:#FFFFFF;
+	font-size:10px;
+	margin:0;
+	font-weight:normal;
+	width:100px;
+}
+
+.feriaNavSeccion .boxes .sorteo .contenido {
+	background:url(images/feriaNav-imgSorteo.jpg) no-repeat right top;
+	padding:0 180px 0 0;
+	height:186px;
+	padding-top:13px;
+}
+
+.feriaNavSeccion .boxes .sorteo .contenido p {
+	margin:0 0 10px 13px;
+}
+
+.feriaNavSeccion .boxes .sorteo .contenido .bold {
+	font-weight:bold;
+}
+
+.feriaNavSeccion .obras {
+	background:url(images/feriaNav-bgObras.jpg) repeat-x #e2dfda;
+	float:left;
+	width:792px;
+	margin-top:25px;
+}
+
+.feriaNavSeccion .obras h2 {
+	background:url(images/feriaNav-icoObras.gif) no-repeat center left #7f7770;
+	padding-left:27px;
+	line-height:24px;
+	color:#FFFFFF;
+	font-size:10px;
+	margin:0 0 19px 0;
+	font-weight:normal;
+	width:200px;
+}
+
+.feriaNavSeccion .obras img {
+	border:none;
+	margin:0 0 8px 8px;
+}
+
+.feriaNavSeccion .obras .link {
+	display:block;
+	text-align:right;
+	margin:0 20px 20px 0;
+	text-decoration:none;
+	color:#7F7770;
+}
+
+.feriaNavSeccion a:hover {
+	text-decoration:underline;
+}
+
+.feriaNavSeccion .mapa {
+	float:left;
+	width:392px;
+	border-top:1px solid #93897F;
+	margin-top:20px;
+	padding:10px 400px 0 0;
+	background:url(images/feriaNav-mapa.jpg) no-repeat right top;
+	height:242px;
+}
+
+.feriaNavSeccion .mapa h3 {
+	font-size:16px;
+	font-weight:bold;
+	color:#63594E;
+	margin:0 0 10px 0;
+}
+
+.feriaNavSeccion .mapa p {
+	margin:0 0 10px 0;
+}
+
+.feriaNavSeccion .mapa .link {
+	display:block;
+	text-align:right;
+	margin:0 0 20px 0;
+	text-decoration:none;
+	color:#fff;
+}
+
+.tituloFeriaNav h1 {
+	margin:0;
+	font-size:16px;
+	background:url(images/feriaNav-logo.jpg) no-repeat;
+	padding:5px 0 35px 360px;
+	color:#63594E;
+}
+
+.feriaNavSeccion .ganador {
+	float:left;
+	width:662px;
+	background:url(images/feriaNav-ganadores-bg.jpg) repeat-x;
+	padding:15px 65px;
+	margin-bottom:20px;
+}
+
+.feriaNavSeccion .ganador img {
+	float:left;
+	width:250px;
+}
+
+.feriaNavSeccion .ganador .texto {
+	margin-top:40px;
+}
+
+.feriaNavSeccion .ganador p {
+	float:left;
+	width:290px;
+	font-size:14px;
+	margin:30px 0 0 20px;
+}
+
+.feriaNavSeccion .ganador p .nombre {
+	font-size:19px;
+	display:block;
+}
+
+.feriaNavSeccion .ganador p .obra {
+	display:block;
+	font-style:italic;
+	font-weight:bold;
+}
+
+/* SECCION ESPEJADOS */
+
+.tituloEspejados {
+	background:url(images/expo-bgTit.jpg) repeat-y #d7d2ce;
+	padding:30px 0 30px 70px;
+	float:left;
+	width:780px;
+	margin-top:15px;
+}
+
+.tituloEspejados h1 {
+	margin:0;
+	font-size:16px;
+	background:url(images/espejados-logo.png) no-repeat;
+	padding:3px 0 0 240px;
+	color:#63594E;
+}
+
+.espejadosSeccion {
+	background-color:#C9C3BB;
+	padding:20px 29px;
+	float:left;
+	width:792px;
+	font-size:10px;
+	color:#63594E;
+}
+
+.espejadosSeccion p {
+	font-size:12px;
+	margin:0 0 15px 0;
+}
+
+.espejadosSeccion .obras {
+	background:url(images/espejados-obras_bg.jpg) repeat-x;
+}
+
+.espejadosSeccion .obras h2 {
+	background:url(images/ico-lupa2.gif) no-repeat center left #7f7770;
+	padding-left:27px;
+	line-height:24px;
+	color:#FFFFFF;
+	font-size:10px;
+	margin:0 0 19px 0;
+	font-weight:normal;
+	text-transform:uppercase;
+	width:115px;
+}
+
+.espejadosSeccion .obras img {
+	border:none;
+	padding:0 0 19px 19px;
+}
+
+.espejadosSeccion .datos {
+	font-size:12px;
+	margin-top:20px;
+}
+
+.espejadosSeccion .datos .tit {
+	font-size:16px;
+	font-weight:bold;
+	color:#63594E;
+	margin-bottom:5px;
+	display:block;
+	border-bottom:1px solid #93897F;
+	padding-bottom:8px;
+}
+
+.espejadosSeccion .datos .lugar {
+	background:url(images/espejados-logo_gardel.gif) no-repeat;
+	padding-left:143px;
+	margin-top:10px;
+}
+
+.espejadosSeccion .datos p {
+	margin:0;
+}
+
+.espejadosSeccion .datos .horario {
+	border-top:1px solid #b6b0a7;
+	margin-top:3px;
+	padding-top:3px;
+	display:block;
+	width:647px;
+}
+
+.espejadosSeccion .datos .horario .bold {
+	font-weight:bold;
+}
+
+.text-small {
+	font-size:11px;
+}
+
+.gallery-ref {
+	font-size:10px;
+}
+
+.vendido {
+	background:url(images/ico-vendido.gif) no-repeat;
+	background-position:0 3px;
+	padding-left:5px;
+	float:left;
+	width:65px;
+}
+
+.oferta {
+	font-size:10px;
+	background:url(images/ico-oferta.gif) no-repeat;
+	padding-left:18px;
+	float:right;
+	width:120px;
+}
+
+.title-categoria {
+	color:#fff;
+	padding:0 13px 0 5px;
+	display:block;
+	font-size:12px;
+}
+
+.title-serie {
+	padding:2px 5px;
+	display:block;
+	font-size:11px;
+}
+
+.ver-serie {
+	padding:3px 25px 3px 8px;
+	display:block;
+	font-size:9px;
+	background:url(images/ico-serie.gif) no-repeat;
+	text-decoration:none;
+	color:#63594E;
+	background-position:102px 2px;
+}
+
+.series-links {
+	text-align:center;
+	font-size:12px;
+}
+
+.series-links a {
+	color:#63594E;
+	background:url(images/bullet-arrow.gif) no-repeat;
+	background-position:0 5px;
+	padding-left:8px;
+	margin:0 20px;
+}
+
+.series-links a:hover {
+	color:#433c35;
+}
+
+/* Nuevos ***********************************/
+
+a {
+  -moz-outline: none 0;
+  outline: none 0;
+}
+
+.contentSeccion {
+	background-color:#C9C3BB;
+	padding:20px;
+	float:left;
+	width:810px;
+	color:#63594E;
+	margin-top:15px;
+}
+
+.contentSeccion h1 {
+	margin:0 0 15px 0;
+	font-size:19px;
+}
+
+.contentSeccion h2 {
+	margin:0 0 15px 0;
+	font-size:14px;
+}
+
+.contentSeccion p {
+	margin:0 0 10px 0;
+	line-height:15px;
+}
+
+.contentSeccion ol {
+	margin:0;
+	padding:0 0 0 18px;
+}
+
+.contentSeccion ol li {
+	margin:0 0 10px 0;
+}
+
+.contentSeccion .title-float {
+	float:left;
+	width:810px;
+	margin-bottom:15px;
+}
+
+.contentSeccion .title-float h1 {
+	float:left;
+	padding-right:30px;
+}
+
+.wallpapers-block {
+	float:left;
+	width:810px;
+}
+
+.wallpapers-block .thumb {
+	float:left;
+	margin-right:19px;
+	text-align:center;
+	text-decoration:none;
+	color:#63594E;
+}
+
+.wallpapers-block .thumb img {
+	border:solid 1px #dcd6d3;
+}
+
+.wallpapers-block .thumb span {
+	display:block;
+	font-size:10px;
+	margin-top:5px;
+}
+
+.wallpapers-block .thumb:hover {
+	color:#333;
+}
+
+.wallpapers-block .row {
+	float:left;
+	width:809px;
+	margin-bottom:23px;
+}
+
+.wallpapers-block .thumb-right {
+	margin:0;
+}
+
+.box-large {
+	background:#dcd6d3;
+	float:left;
+	width:780px;
+	padding:15px;
+}
+
+#wall-popup {
+	width:500px;
+	text-align:center;
+}
+
+#wall-popup .title {
+	background:#dcd6d3;
+	padding:5px 0;
+	font-weight:bold;
+}
+
+#wall-popup img {
+	margin:20px 0;
+}
+
+#wall-popup .series-links {
+	font-size:11px;
+	margin-bottom:10px;
+}
+
+#wall-popup .instruction {
+	font-size:12px;
+	padding:10px 0 18px 0;
+	border-top:1px solid #C9C3BB;
+	margin-top:20px;
+	background:#dcd6d3;
+}
+
+.serie-block-left {
+	float:left;
+	width:312px;
+	margin-top:20px;
+}
+
+.serie-block-right {
+	float:right;
+	width:462px;
+	margin-top:20px;
+}
+
+.serie-block-right .thumbnails {
+	float:left;
+	width:462px;
+	margin-top:8px;
+}
+
+.serie-block-right .thumbnails img {
+	border:solid 1px #dcd6d3;
+}
+
+.serie-block-right .thumbnails .thumb {
+	float:left;
+	margin-right:8px;
+	background:#C9C3BB;
+	padding:2px;
+}
+
+.serie-block-right .thumbnails .thumb:hover {
+	background:#b9b3aa;
+}
+
+.serie-block-right .thumbnails .thumb-right {
+	float:right;
+	margin:0;
+}
+
+/* SECCION LAMINAS */
+
+.contentSeccion .pic-laminas {
+	float:left;
+	padding:0 0 0 35px;
+}
+
+.contentSeccion .intro-laminas {
+	float:right;
+	width:473px;
+	padding-left:100px;
+	background:url(images/icon-nuevo-big.jpg) no-repeat;
+}
+
+.contentSeccion .intro-laminas .precios {
+	width:430px;
+	margin:20px auto;
+}
+
+.contentSeccion .intro-laminas .precios div {
+	border:solid 1px #a39a90;
+	padding:12px;
+	margin-bottom:5px;
+}
+
+.contentSeccion .intro-laminas .precios div span {
+	display:block;
+}
+
+.contentSeccion .intro-laminas .nota {
+	background:url(images/icon-firma.gif) no-repeat #e3dedb;
+	background-position:5px 5px;
+	height:22px;
+	padding:5px 0 0 32px;
+	display:block;
+}
+
+.contentSeccion .gallery-laminas {
+	float:left;
+	width:810px;
+	margin-top:25px;
+}
+
+.contentSeccion .gallery-laminas h2 {
+	border-bottom:solid 1px #a39a90;
+	padding-bottom:10px;
+	font-size:16px;
+	margin-bottom:15px;
+}
+
+/* SECCION REPRODUCCIONES */
+
+.contentSeccion .intro-reproducciones {
+	float:right;
+	width:473px;
+	padding-left:100px;
+}
+
+.contentSeccion .intro-reproducciones .precios {
+	width:420px;
+	margin:20px auto;
+}
+
+.contentSeccion .intro-reproducciones .precios div {
+	border:solid 1px #a39a90;
+	padding:12px;
+	margin-bottom:5px;
+}
+
+.contentSeccion .intro-reproducciones .precios div span {
+	display:block;
+}
+
+.contentSeccion .intro-reproducciones .nota {
+	background:url(images/icon-firma.gif) no-repeat #e3dedb;
+	background-position:5px 5px;
+	height:22px;
+	padding:5px 0 0 32px;
+	display:block;
+}
+
+
+
+
+/* LINKS TOP */
+
+#header .social-icons {
+    background:#f2f0ed;
+    width:118px;
+    height:25px;
+    position:absolute;
+    top:-15px;
+    right:59px;
+    font-size:11px;
+}
+
+#header .social-icons span {
+    float:left;
+    padding:5px 0 0 7px;
+}
+
+#header .social-icons img {
+    border:none;
+    float:left;
+}
+
+#header .social-icons a {
+    float:left;
+    margin:4px 0 0 5px;
+}
+
+
+#header .bitcoin-btn {
+    background:url(images/ico-bitcoin.jpg) no-repeat #ffffff;
+    width:92px;
+    height:21px;
+	padding:4px 0 0 29px;
+	text-decoration:none;
+	color:#63594E;
+    position:absolute;
+    top:-15px;
+    right:181px;
+    font-size:11px;
+}
+
+#header .language {
+    background:#f2f0ed;
+    width:55px;
+    height:25px;
+    position:absolute;
+    top:-15px;
+    right:0;
+    font-size:11px;
+}
+
+#header .language img {
+    border:none;
+    float:left;
+}
+
+#header .language a {
+    float:left;
+    margin:6px 0 0 7px;
+}
+
+/*********** OFERTAS NAVIDAD ************/
+
+
+.contentSeccion .top-ofertas {
+	float:left;
+	width:810px;
+	background:url(images/banner-ofertas_navidad.jpg) no-repeat #e2001a;
+	height:111px;
+}
+
+.contentSeccion .top-ofertas .textos {
+	float:left;
+	width:215px;
+	padding-left:485px;
+	color:#fff;
+	font-size:14px;
+	padding-top:10px;
+}
+
+.contentSeccion .top-ofertas .textos span {
+	display:block;
+	font-weight:bold;
+	font-size:21px;
+	line-height:23px;
+	margin-bottom:5px;
+}
+
+.contentSeccion .top-ofertas .cuadro {
+	float:right;
+	width:106px;
+	height:96px;
+	background:url(images/tranquera.jpg) no-repeat;
+	margin-top:10px;
+	color:#fff;
+	font-size:12px;
+}
+
+.contentSeccion .top-ofertas .cuadro span {
+	display:block;
+	margin-top:72px;
+	padding-left:12px;
+}
+
+.contentSeccion .top-ofertas .cuadro span strong {
+	font-size:14px;
+}
+
+.contentSeccion .subtit-cuadros {
+	color:#fff;
+}
+
+

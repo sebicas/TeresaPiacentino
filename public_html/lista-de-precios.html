@@ -1,0 +1,41 @@
+<?
+   // Includes
+   require_once './includes/db-connect.php';	
+
+   // Informacion de Laminas
+   $query = "select * from `Cuadros`";
+   $dataCuadros =& $db->getAssoc($query, true, array(), DB_FETCHMODE_ASSOC);
+
+?>
+<HTML>
+<!-- CREATION DATE: 7/18/2010 -->
+<HEAD>
+<TITLE></TITLE>
+<META NAME="Description" CONTENT="">
+<META NAME="Keywords" CONTENT="">
+<META NAME="Author" CONTENT="C0Ke2000">
+<META NAME="Generator" CONTENT="AceExpert">
+</HEAD>
+<BODY>
+
+<TABLE WIDTH=900 BORDER=1 ALIGN="CENTER" CELLSPACING=0 cellpadding=5>
+    <TR>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><b>Id</b></FONT></TD>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><b>Nombre del Cuadro</b></FONT></TD>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><b>Precio en Pesos</b></FONT></TD>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><b>Precio en Dolares</b></FONT></TD>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><b>Precio en Euros</b></FONT></TD>
+    </TR>
+<? foreach($dataCuadros as $CuadroID => $CuadroData) { ?>
+    <TR>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><a href="/cuadro/<?= $CuadroID ?>/<?= $CuadroData['PageName'] ?>"><?= $CuadroID ?></a></FONT></TD>
+      <TD><FONT face="verdana" SIZE=2><?= $CuadroData['Titulo'] ?></FONT></TD>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><?= $CuadroData['Precio'] ?></FONT></TD>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><?= $CuadroData['Precio_USD'] ?></FONT></TD>
+      <TD ALIGN="CENTER"><FONT face="verdana" SIZE=2><?= $CuadroData['Precio_EUR'] ?></FONT></TD>
+    </TR>
+<? } ?>
+</TABLE>
+
+</BODY>
+</HTML>

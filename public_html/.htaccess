@@ -1,0 +1,10 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^cuadro/(.+)$ /ampliar.html?$1
+RewriteRule ^painting/(.+)$ /painting.html?$1
+RewriteRule ^cuadro2/(.+)$ /ampliar2.html?$1
+RewriteRule ^cuadros-oleo/(.+)$ /ampliar_ambientes.html?$1
+RewriteCond %{HTTP_HOST} ^teresapiacentino\.com\.ar$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.teresapiacentino\.com\.ar$
+RewriteRule ^(.*)$ "http\:\/\/www\.teresapiacentino\.com\/$1" [R=301,L]
+
