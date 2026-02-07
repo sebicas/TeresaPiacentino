@@ -15,8 +15,6 @@ services:
       - MYSQL_USER=${MYSQL_USER:-teresapi}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD:-WtKPvPjB9AjwtyPf}
     volumes:
-      # Mount public_html for development (optional, comment out for production)
-      - ./public_html:/var/www/html:rw
       # MSMTP config for email
       - ./docker/msmtp/msmtprc:/etc/msmtprc:ro
     depends_on:
